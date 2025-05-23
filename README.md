@@ -1,52 +1,98 @@
 # LLM Chat Application
 
-A simple, standalone web-based chat interface for LLMs using the OpenRouter API. Built with vanilla JavaScript, HTML, and CSS.
+A secure, full-stack web-based chat interface for LLMs using the OpenRouter API. Built with Node.js backend and vanilla JavaScript frontend for optimal security and performance.
 
 ## Features
 
+### 🔒 **Security & Backend**
+- **Secure API Key Management**: API keys stored server-side as environment variables
+- **Session-based Authentication**: JWT tokens for secure anonymous sessions
+- **Rate Limiting**: Protection against abuse with configurable limits
+- **CORS Protection**: Secure cross-origin resource sharing
+- **Input Validation**: Server-side validation of all requests
+
+### 🎨 **User Interface**
 - **Clean, Modern Interface**: Intuitive chat UI similar to popular platforms like ChatGPT and Claude
-- **OpenRouter API Integration**: Access to multiple LLM models through a single interface
-- **Rich Text Support**: Markdown rendering and code syntax highlighting
-- **File Upload**: Add context to your prompts by uploading text files
-- **Streaming Responses**: See model responses in real-time as they're generated
-- **Conversation Management**: Save, load, export, and import conversations
-- **Model Selection**: Choose from various models with different context windows
-- **Advanced Settings**: Fine-tune model parameters like `temperature`, `top_p`, and more
-- **Persistence**: Chat history stored in `localStorage` for data preservation
+- **Real-time Server Status**: Visual indicator of backend connection status
+- **Error Handling**: User-friendly error messages and notifications
 - **Mobile Responsive**: Works well on desktop, tablet, and mobile devices
+- **Rich Text Support**: Markdown rendering and code syntax highlighting
+
+### 🤖 **AI Integration**
+- **Multiple Model Support**: Access to various free LLM models through OpenRouter
+- **Model-specific API Keys**: Different API keys for different models
+- **Streaming Responses**: See model responses in real-time as they're generated
+- **Advanced Settings**: Fine-tune model parameters like `temperature`, `top_p`, and more
+- **Fallback Models**: Automatic fallback to alternative models if primary fails
+
+### 💾 **Data Management**
+- **Database Persistence**: SQLite database for reliable chat storage
+- **Conversation Management**: Save, load, export, and import conversations
+- **File Upload**: Add context to your prompts by uploading text files
+- **Session Management**: Automatic cleanup of old sessions and data
+- **Data Export**: Export conversations in JSON format
 
 ## Getting Started
 
 ### Prerequisites
 
-- An OpenRouter API key (sign up at [OpenRouter.ai](https://openrouter.ai))
+- **Node.js 16+** and **npm 8+**
+- **OpenRouter API keys** (get them at [OpenRouter.ai](https://openrouter.ai))
 - A modern web browser (Chrome, Firefox, Safari, Edge)
-- A web server (optional for local development)
 
-### Installation
+### Quick Start (Recommended)
 
-1. Clone this repository:
-   ```
+1. **Clone the repository:**
+   ```bash
    git clone https://github.com/josephgodwinkimani/openrouter-web.git
-   ```
-
-2. Navigate to the project directory:
-   ```
    cd openrouter-web
    ```
 
-3. Open the `index.html` file in your browser or serve it with a local server
+2. **Run the quick start script:**
+   ```bash
+   ./start.sh
+   ```
 
-For a simple local server, you can use Python:
+   This script will:
+   - Install backend dependencies
+   - Set up the database
+   - Start the backend server (port 3001)
+   - Start the frontend server (port 8000)
+
+3. **Configure API keys:**
+   - Edit `server/.env` file
+   - Add your OpenRouter API keys:
+     ```env
+     QWEN_API_KEY=your_qwen_api_key_here
+     GEMMA_API_KEY=your_gemma_api_key_here
+     DEFAULT_API_KEY=your_default_api_key_here
+     ```
+
+4. **Access the application:**
+   - Frontend: http://localhost:8000
+   - Backend API: http://localhost:3001
+   - Health Check: http://localhost:3001/health
+
+### Manual Setup
+
+If you prefer to set up manually:
+
+#### Backend Setup
+```bash
+cd server
+npm install
+cp .env.example .env
+# Edit .env with your API keys
+npm run init-db
+npm run dev
 ```
-# Python 3
-python -m http.server
 
-# Python 2
-python -m SimpleHTTPServer
+#### Frontend Setup
+```bash
+# In project root
+python3 -m http.server 8000
+# Or use any static file server
 ```
-
-Then access the application at `http://localhost:8000`.
 
 ### Usage
 
