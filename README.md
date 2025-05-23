@@ -1,178 +1,237 @@
-# LLM Chat Application
+# 🤖 Chat IA - Aplicación de Chat con Modelos LLM Gratuitos
 
-A secure, full-stack web-based chat interface for LLMs using the OpenRouter API. Built with Node.js backend and vanilla JavaScript frontend for optimal security and performance.
+Una aplicación de chat moderna y segura que utiliza modelos LLM gratuitos de OpenRouter a través de una interfaz web intuitiva construida con **Streamlit**.
 
-## Features
+## 🚀 Características Principales
 
-### 🔒 **Security & Backend**
-- **Secure API Key Management**: API keys stored server-side as environment variables
-- **Session-based Authentication**: JWT tokens for secure anonymous sessions
-- **Rate Limiting**: Protection against abuse with configurable limits
-- **CORS Protection**: Secure cross-origin resource sharing
-- **Input Validation**: Server-side validation of all requests
+### 🔒 **Seguridad Total**
+- ✅ API keys preconfiguradas y seguras
+- ✅ Sin exposición de credenciales en el frontend
+- ✅ Variables de entorno protegidas
 
-### 🎨 **User Interface**
-- **Clean, Modern Interface**: Intuitive chat UI similar to popular platforms like ChatGPT and Claude
-- **Real-time Server Status**: Visual indicator of backend connection status
-- **Error Handling**: User-friendly error messages and notifications
-- **Mobile Responsive**: Works well on desktop, tablet, and mobile devices
-- **Rich Text Support**: Markdown rendering and code syntax highlighting
+### 🤖 **Modelos LLM Incluidos**
+- **Qwen 2.5 VL 72B** (131,072 tokens) - Modelo avanzado de visión-lenguaje
+- **Gemma 3 27B** (131,072 tokens) - Modelo de Google optimizado para instrucciones  
+- **DeepSeek R1 Zero** (163,840 tokens) - Modelo de razonamiento matemático
 
-### 🤖 **AI Integration**
-- **Multiple Model Support**: Access to various free LLM models through OpenRouter
-- **Model-specific API Keys**: Different API keys for different models
-- **Streaming Responses**: See model responses in real-time as they're generated
-- **Advanced Settings**: Fine-tune model parameters like `temperature`, `top_p`, and more
-- **Fallback Models**: Automatic fallback to alternative models if primary fails
+### 🎨 **Interfaz Moderna con Streamlit**
+- ✅ Chat en tiempo real con historial
+- ✅ Selección fácil de modelos
+- ✅ Configuración avanzada de parámetros
+- ✅ Estadísticas de chat en tiempo real
+- ✅ Exportación de conversaciones en JSON
+- ✅ Diseño responsive para móvil y desktop
 
-### 💾 **Data Management**
-- **Database Persistence**: SQLite database for reliable chat storage
-- **Conversation Management**: Save, load, export, and import conversations
-- **File Upload**: Add context to your prompts by uploading text files
-- **Session Management**: Automatic cleanup of old sessions and data
-- **Data Export**: Export conversations in JSON format
+### ⚙️ **Configuración Avanzada**
+- 🌡️ Control de temperatura (creatividad)
+- 📏 Límite de tokens configurable
+- 🎯 Top-P para diversidad de respuestas
+- ⏰ Timestamps en cada mensaje
 
-## Getting Started
+## 📋 Requisitos del Sistema
 
-### Prerequisites
+- **Windows 11** (recomendado)
+- **Python 3.8 o superior**
+- **Visual Studio Code** (recomendado)
+- **Git** (para clonar el repositorio)
+- **Conexión a Internet** (para acceder a los modelos)
 
-- **Node.js 16+** and **npm 8+**
-- **OpenRouter API keys** (get them at [OpenRouter.ai](https://openrouter.ai))
-- A modern web browser (Chrome, Firefox, Safari, Edge)
+## 🛠️ Instalación Paso a Paso en Windows 11
 
-### Quick Start (Recommended)
+### **PASO 1: Instalar Python**
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/josephgodwinkimani/openrouter-web.git
-   cd openrouter-web
+1. **Descargar Python:**
+   - Ve a [python.org](https://www.python.org/downloads/)
+   - Descarga Python 3.11 o superior
+   - **IMPORTANTE**: Durante la instalación, marca "Add Python to PATH"
+
+2. **Verificar instalación:**
+   ```cmd
+   python --version
+   pip --version
    ```
 
-2. **Run the quick start script:**
-   ```bash
-   ./start.sh
+### **PASO 2: Instalar Git**
+
+1. **Descargar Git:**
+   - Ve a [git-scm.com](https://git-scm.com/download/win)
+   - Descarga e instala Git para Windows
+
+2. **Verificar instalación:**
+   ```cmd
+   git --version
    ```
 
-   This script will:
-   - Install backend dependencies
-   - Set up the database
-   - Start the backend server (port 3001)
-   - Start the frontend server (port 8000)
+### **PASO 3: Instalar Visual Studio Code**
 
-3. **Configure API keys:**
-   - Edit `server/.env` file
-   - Add your OpenRouter API keys:
-     ```env
-     QWEN_API_KEY=your_qwen_api_key_here
-     GEMMA_API_KEY=your_gemma_api_key_here
-     DEFAULT_API_KEY=your_default_api_key_here
-     ```
+1. **Descargar VS Code:**
+   - Ve a [code.visualstudio.com](https://code.visualstudio.com/)
+   - Descarga e instala VS Code
 
-4. **Access the application:**
-   - Frontend: http://localhost:8000
-   - Backend API: http://localhost:3001
-   - Health Check: http://localhost:3001/health
+2. **Instalar extensiones recomendadas:**
+   - Python (Microsoft)
+   - Python Debugger (Microsoft)
+   - Pylance (Microsoft)
 
-### Manual Setup
+### **PASO 4: Clonar el Repositorio**
 
-If you prefer to set up manually:
+1. **Abrir Terminal en VS Code:**
+   - Presiona `Ctrl + Shift + `` (backtick)
+   - O ve a Terminal → New Terminal
 
-#### Backend Setup
+2. **Clonar el proyecto:**
+   ```bash
+   # 1. Clonar el repositorio
+   git clone https://github.com/Cesde-Suroeste/chat-IA.git
+   cd chat-IA
+   ```
+
+### **PASO 5: Configurar Entorno Virtual**
+
 ```bash
-cd server
-npm install
-cp .env.example .env
-# Edit .env with your API keys
-npm run init-db
-npm run dev
+# 2. Crear entorno virtual
+python -m venv venv
+
+# 3. Activar entorno virtual (Windows)
+venv\Scripts\activate
 ```
 
-#### Frontend Setup
+**Nota:** Deberías ver `(venv)` al inicio de tu línea de comandos
+
+### **PASO 6: Instalar Dependencias**
+
 ```bash
-# In project root
-python3 -m http.server 8000
-# Or use any static file server
+# 4. Instalar dependencias
+pip install -r requirements.txt
 ```
 
-### Usage
+### **PASO 7: Ejecutar la Aplicación**
 
-1. When you first access the application, you'll be prompted to enter your OpenRouter API key
-2. Select a model from the dropdown menu at the top of the screen
-3. Type your message in the input field at the bottom of the screen
-4. (Optional) Upload text files by clicking the paperclip icon
-5. Press Enter or click the send button to submit your message
-6. View the model's response as it streams in real-time
+```bash
+# 5. Ejecutar aplicación
+streamlit run app.py
+```
 
-## Models
+### **PASO 8: Abrir en el Navegador**
 
-The application supports the following models from OpenRouter:
+- La aplicación se abrirá automáticamente en `http://localhost:8501`
+- Si no se abre automáticamente, copia la URL desde la terminal
 
-- DeepSeek V3 0324 (163,840 context)
-- DeepSeek R1 (163,840 context)
-- Gemini 2.0 Flash (1,048,576 context)
-- DeepSeek V3 Base (163,840 context)
-- DeepSeek R1 Zero (163,840 context)
-- Gemma 3 27B (131,072 context)
-- Qwen 2.5 VL 72B (131,072 context)
-- Llama 3.2 1B (131,072 context)
-- DeepSeek R1 Distill Llama 70B (128,000 context)
+## 🎮 Cómo Usar la Aplicación
 
-## Advanced Settings
+### **Interfaz Principal**
 
-The application provides numerous settings to customize model behavior:
+1. **Barra Lateral Izquierda:**
+   - **Selección de Modelo**: Dropdown con todos los modelos disponibles
+   - **Configuración Avanzada**: Sliders para temperatura, max tokens, y top-p
+   - **Estado de API**: Indicador "✅ API Key Configured"
+   - **Limpiar Chat**: Botón para reiniciar la conversación
 
-- **Temperature**: Controls randomness (0.0 to 2.0)
-- **Top P**: Controls diversity via nucleus sampling (0.0 to 1.0)
-- **Top K**: Limits choice to K top tokens (0 or above)
-- **Frequency Penalty**: Reduces repetition based on frequency in input (-2.0 to 2.0)
-- **Presence Penalty**: Reduces repetition regardless of frequency (-2.0 to 2.0)
-- **Repetition Penalty**: Reduces repetition based on token probability (0.0 to 2.0)
-- **Min P**: Minimum probability relative to most likely token (0.0 to 1.0)
-- **Top A**: Dynamic Top-P based on highest probability token (0.0 to 1.0)
-- **Seed**: For deterministic responses
-- **Max Tokens**: Maximum number of tokens to generate
-- **Logprobs**: Return log probabilities of output tokens
-- **Top Logprobs**: Number of most likely tokens to return at each position
-- **Streaming**: Stream the response as it's generated
-- **Reasoning Tokens**: Controls the amount of reasoning (thinking) tokens the model uses
+2. **Área Central:**
+   - **Chat Interface**: Conversación en tiempo real
+   - **Campo de Entrada**: Escribe tu mensaje aquí
+   - **Timestamps**: Marca de tiempo en cada mensaje
 
-## File Upload Support
+3. **Panel Derecho:**
+   - **Estadísticas**: Contadores de mensajes
+   - **Información del Modelo**: Detalles del modelo actual
+   - **Exportación**: Descarga conversaciones en JSON
 
-The application supports uploading text-based files to provide context for your prompts. Supported file types include:
+### **Uso Básico**
 
-- Plain text (.txt)
-- Markdown (.md)
-- Code files (.js, .html, .css, .py, etc.)
-- Data files (.json, .csv, etc.)
+1. **Seleccionar Modelo:**
+   - En la barra lateral, elige entre Qwen, Gemma, o DeepSeek
 
-When you upload a file, its content will be appended to your prompt in a structured format.
+2. **Ajustar Parámetros (Opcional):**
+   - **Temperature**: 0.0 (preciso) a 2.0 (creativo)
+   - **Max Tokens**: Longitud máxima de respuesta
+   - **Top P**: Diversidad de respuestas
 
-## Managing Conversations
+3. **Chatear:**
+   - Escribe tu mensaje en el campo inferior
+   - Presiona Enter o haz clic en enviar
+   - ¡Disfruta de la conversación!
 
-- **New Chat**: Start a new conversation with the current model
-- **Export Chat**: Save the current conversation as a JSON file
-- **Import Chat**: Load a previously exported conversation
-- **Delete Chat**: Remove the current conversation from history
+## 🔧 Solución de Problemas
 
-## Keyboard Shortcuts
+### **Error: "Python no se reconoce"**
+- Reinstala Python marcando "Add to PATH"
+- Reinicia VS Code y la terminal
 
-- **Ctrl+Enter** / **Cmd+Enter**: Send message
-- **Ctrl+N** / **Cmd+N**: New chat
+### **Error: "streamlit no se reconoce"**
+- Verifica que el entorno virtual esté activado
+- Ejecuta: `pip install streamlit`
 
+### **Error: "Port 8501 is already in use"**
+- Usa otro puerto: `streamlit run app.py --server.port 8502`
 
-All data is stored locally in your browser using `localStorage`. Your API key is stored in `sessionStorage` and is only valid for the current session.
+### **Error: "No API key configured"**
+- Verifica que el archivo `.env` existe en el directorio raíz
+- Las API keys ya están configuradas, no necesitas cambiar nada
 
-## Security Note
+### **La aplicación no responde**
+- Verifica tu conexión a internet
+- Comprueba que OpenRouter esté disponible
+- Revisa la consola de VS Code para errores
 
-This application handles API keys directly in the browser, which carries security risks as it exposes your API key to anyone inspecting the page's source code or network requests. This implementation is intended for personal use only.
+## 📊 Modelos Configurados
 
-## License
+| Modelo | Context Window | Descripción | Uso Recomendado |
+|--------|---------------|-------------|-----------------|
+| **Qwen 2.5 VL 72B** | 131,072 tokens | Modelo avanzado de visión-lenguaje | Conversaciones generales, análisis de texto |
+| **Gemma 3 27B** | 131,072 tokens | Modelo de Google optimizado | Instrucciones específicas, programación |
+| **DeepSeek R1 Zero** | 163,840 tokens | Modelo de razonamiento | Matemáticas, problemas lógicos |
 
-This project is licensed under the MIT License.
+## 🚀 Ventajas de Streamlit
 
-## Acknowledgments
+- ✅ **Desarrollo Rápido**: Interfaz completa en Python
+- ✅ **Reactivo**: Actualizaciones automáticas de la UI
+- ✅ **Componentes Ricos**: Chat, sliders, métricas integradas
+- ✅ **Fácil Despliegue**: Compatible con múltiples plataformas
+- ✅ **Sin JavaScript**: Todo en Python, más fácil de mantener
 
-- OpenRouter API for providing access to multiple LLM models
-- Bootstrap team for the responsive design framework
-- Any & all the open-source libraries used in this project
+## 📝 Comandos Útiles
 
+```bash
+# Activar entorno virtual
+venv\Scripts\activate
+
+# Instalar dependencias
+pip install -r requirements.txt
+
+# Ejecutar aplicación
+streamlit run app.py
+
+# Ejecutar en puerto específico
+streamlit run app.py --server.port 8502
+
+# Desactivar entorno virtual
+deactivate
+```
+
+## 🤝 Contribuciones
+
+Las contribuciones son bienvenidas:
+
+1. Fork el proyecto
+2. Crea una rama para tu feature (`git checkout -b feature/nueva-caracteristica`)
+3. Commit tus cambios (`git commit -m 'Agregar nueva característica'`)
+4. Push a la rama (`git push origin feature/nueva-caracteristica`)
+5. Abre un Pull Request
+
+## 📞 Soporte
+
+Si tienes problemas:
+
+1. **Revisa esta documentación**
+2. **Verifica los requisitos del sistema**
+3. **Abre un issue en GitHub** con detalles del error
+4. **Incluye la versión de Python y sistema operativo**
+
+## 📄 Licencia
+
+MIT License - ver archivo [LICENSE](LICENSE) para detalles.
+
+---
+
+**¡Disfruta chateando con IA de forma segura y gratuita!** 🎉
