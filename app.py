@@ -14,10 +14,13 @@ def get_env_var(key, default=None):
     """Get environment variable from either st.secrets or os.getenv"""
     try:
         # Try Streamlit secrets first (for Streamlit Cloud)
-        return st.secrets[key]
-    except (KeyError, AttributeError):
-        # Fall back to os.getenv (for local development)
-        return os.getenv(key, default)
+        if hasattr(st, 'secrets') and key in st.secrets:
+            return st.secrets[key]
+    except Exception:
+        pass
+
+    # Fall back to os.getenv (for local development)
+    return os.getenv(key, default)
 
 # Page configuration
 st.set_page_config(
@@ -35,8 +38,8 @@ MODELS = {
         "api_key": get_env_var("QWEN_API_KEY"),
         "description": "Advanced vision-language model"
     },
-    "google/gemma-3-27b-it:free": {
-        "name": "Gemma 3 27B",
+    "google/gemma-3n-e4b-it:free": {
+        "name": "Gemma 3N E4B",
         "context": "131,072 tokens",
         "api_key": get_env_var("GEMMA_API_KEY"),
         "description": "Google's instruction-tuned model"
@@ -46,6 +49,19 @@ MODELS = {
         "context": "163,840 tokens",
         "api_key": get_env_var("DEEPSEEK_API_KEY"),
         "description": "DeepSeek's reasoning model"
+    },
+    # Modelos alternativos disponibles
+    "meta-llama/llama-3.2-3b-instruct:free": {
+        "name": "Llama 3.2 3B",
+        "context": "131,072 tokens",
+        "api_key": get_env_var("QWEN_API_KEY"),
+        "description": "Meta's Llama model (fast and efficient)"
+    },
+    "google/gemma-2-9b-it:free": {
+        "name": "Gemma 2 9B",
+        "context": "8,192 tokens",
+        "api_key": get_env_var("QWEN_API_KEY"),
+        "description": "Google's Gemma 2 model (compact)"
     }
 }
 
@@ -72,8 +88,8 @@ def call_openrouter_api(model_id, messages, stream=False):
     headers = {
         "Authorization": f"Bearer {api_key}",
         "Content-Type": "application/json",
-        "HTTP-Referer": "https://github.com/josephgodwinkimani/openrouter-web",
-        "X-Title": "OpenRouter Streamlit Chat"
+        "HTTP-Referer": "https://github.com/Cesde-Suroeste/chat-IA",
+        "X-Title": "Chat IA - OpenRouter Streamlit"
     }
 
     payload = {
@@ -85,9 +101,11 @@ def call_openrouter_api(model_id, messages, stream=False):
         "top_p": st.session_state.get("top_p", 1.0)
     }
 
+    base_url = get_env_var('OPENROUTER_BASE_URL')
+
     try:
         response = requests.post(
-            f"{get_env_var('OPENROUTER_BASE_URL')}/chat/completions",
+            f"{base_url}/chat/completions",
             headers=headers,
             json=payload,
             timeout=60

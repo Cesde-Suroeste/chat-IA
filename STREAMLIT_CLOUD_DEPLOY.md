@@ -29,14 +29,14 @@ Guía completa para desplegar Chat IA en Streamlit Cloud.
 2. En la sección **"Secrets"**, pega exactamente esto:
 
 ```toml
-# OpenRouter API Keys
-QWEN_API_KEY = "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"
-GEMMA_API_KEY = "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"
-DEEPSEEK_API_KEY = "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"
+# OpenRouter API Keys - Reemplaza con tus credenciales reales
+QWEN_API_KEY = "sk-or-v1-tu_api_key_para_qwen_aqui"
+GEMMA_API_KEY = "sk-or-v1-tu_api_key_para_gemma_aqui"
+DEEPSEEK_API_KEY = "sk-or-v1-tu_api_key_para_deepseek_aqui"
 
 # OpenRouter Configuration
 OPENROUTER_BASE_URL = "https://openrouter.ai/api/v1"
-DEFAULT_API_KEY = "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"
+DEFAULT_API_KEY = "sk-or-v1-tu_api_key_por_defecto_aqui"
 
 # App Configuration
 APP_TITLE = "OpenRouter Chat Application"
