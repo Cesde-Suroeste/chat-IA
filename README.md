@@ -36,7 +36,39 @@ Una aplicación de chat moderna y segura que utiliza modelos LLM gratuitos de Op
 - **Git** (para clonar el repositorio)
 - **Conexión a Internet** (para acceder a los modelos)
 
-## 🛠️ Instalación Paso a Paso en Windows 11
+## 🚀 Instalación Automática (Recomendado)
+
+### **Opción 1: Instalación Automática con Script**
+
+**Descarga e instala todo automáticamente:**
+
+```cmd
+# Descargar script de instalación
+curl -O https://raw.githubusercontent.com/Cesde-Suroeste/chat-IA/main/install_and_run.bat
+
+# Ejecutar instalación automática
+install_and_run.bat
+```
+
+**O clona el repositorio y ejecuta:**
+
+```cmd
+git clone https://github.com/Cesde-Suroeste/chat-IA.git
+cd chat-IA
+install_and_run.bat
+```
+
+### **Scripts Disponibles:**
+- 🎯 **install_and_run.bat** - Instalación completa automática
+- ⚡ **quick_install.bat** - Instalación rápida de una línea
+- 🔄 **run.bat** - Solo ejecutar (después de instalar)
+- 💻 **install_and_run.ps1** - Versión PowerShell avanzada
+
+📚 **Ver guía completa de scripts:** [SCRIPTS_USAGE.md](SCRIPTS_USAGE.md)
+
+---
+
+## 🛠️ Instalación Manual (Paso a Paso)
 
 ### **PASO 1: Instalar Python**
 
