@@ -38,33 +38,189 @@ Una aplicación de chat moderna y segura que utiliza modelos LLM gratuitos de Op
 
 ## 🚀 Instalación Automática (Recomendado)
 
-### **Opción 1: Instalación Automática con Script**
+### **Opción 1: Instalación Automática con Script (Recomendado)**
 
-**Descarga e instala todo automáticamente:**
+#### **🎯 Método 1: Instalación Completa (Principiantes)**
+
+1. **Abrir Terminal en Windows:**
+   - Presiona `Win + R`
+   - Escribe `cmd` y presiona Enter
+   - O busca "Símbolo del sistema" en el menú inicio
+
+2. **Ejecutar comandos:**
+   ```cmd
+   # Clonar el repositorio
+   git clone https://github.com/Cesde-Suroeste/chat-IA.git
+
+   # Entrar al directorio
+   cd chat-IA
+
+   # Ejecutar instalador automático
+   install_and_run.bat
+   ```
+
+3. **Seguir las instrucciones en pantalla:**
+   - El script verificará Python y Git automáticamente
+   - Te preguntará qué puerto usar (presiona Enter para usar 8501)
+   - La aplicación se abrirá automáticamente en tu navegador
+
+#### **⚡ Método 2: Instalación Rápida (Una línea)**
 
 ```cmd
-# Descargar script de instalación
-curl -O https://raw.githubusercontent.com/Cesde-Suroeste/chat-IA/main/install_and_run.bat
-
-# Ejecutar instalación automática
-install_and_run.bat
+# Clonar e instalar en un solo comando
+git clone https://github.com/Cesde-Suroeste/chat-IA.git && cd chat-IA && quick_install.bat
 ```
 
-**O clona el repositorio y ejecuta:**
+#### **💻 Método 3: PowerShell Avanzado**
+
+1. **Abrir PowerShell:**
+   - Presiona `Win + X`
+   - Selecciona "Windows PowerShell" o "Terminal"
+
+2. **Ejecutar:**
+   ```powershell
+   # Instalación básica
+   git clone https://github.com/Cesde-Suroeste/chat-IA.git
+   cd chat-IA
+   PowerShell -ExecutionPolicy Bypass -File install_and_run.ps1
+
+   # Con puerto específico
+   PowerShell -ExecutionPolicy Bypass -File install_and_run.ps1 -Port 8502
+
+   # Instalación forzada (sobrescribir)
+   PowerShell -ExecutionPolicy Bypass -File install_and_run.ps1 -Force
+   ```
+
+### **🔌 Configuración de Puertos**
+
+#### **Puerto por Defecto (8501):**
+```cmd
+install_and_run.bat
+# Presionar Enter cuando pregunte por el puerto
+```
+
+#### **Puerto Personalizado:**
+```cmd
+install_and_run.bat
+# Escribir el puerto deseado (ej: 8502, 3000, 5000)
+```
+
+#### **Puerto 80 (Servidor Web):**
+1. **Abrir CMD como Administrador:**
+   - Buscar "cmd" en el menú inicio
+   - Clic derecho → "Ejecutar como administrador"
+
+2. **Ejecutar:**
+   ```cmd
+   git clone https://github.com/Cesde-Suroeste/chat-IA.git
+   cd chat-IA
+   install_and_run.bat
+   # Escribir "80" cuando pregunte por el puerto
+   ```
+
+### **🔄 Ejecución Posterior (Después de Instalar)**
+
+Una vez instalado, para ejecutar la aplicación nuevamente:
 
 ```cmd
-git clone https://github.com/Cesde-Suroeste/chat-IA.git
+# Navegar al directorio
 cd chat-IA
-install_and_run.bat
+
+# Ejecutar aplicación
+run.bat
 ```
 
 ### **Scripts Disponibles:**
-- 🎯 **install_and_run.bat** - Instalación completa automática
+- 🎯 **install_and_run.bat** - Instalación completa con interfaz visual
 - ⚡ **quick_install.bat** - Instalación rápida de una línea
 - 🔄 **run.bat** - Solo ejecutar (después de instalar)
-- 💻 **install_and_run.ps1** - Versión PowerShell avanzada
+- 💻 **install_and_run.ps1** - Versión PowerShell con parámetros
 
 📚 **Ver guía completa de scripts:** [SCRIPTS_USAGE.md](SCRIPTS_USAGE.md)
+
+### **🎯 Ejemplos Prácticos**
+
+#### **Ejemplo 1: Usuario Principiante**
+```cmd
+# 1. Abrir "Símbolo del sistema" desde el menú inicio
+# 2. Copiar y pegar estos comandos uno por uno:
+
+git clone https://github.com/Cesde-Suroeste/chat-IA.git
+cd chat-IA
+install_and_run.bat
+
+# 3. Seguir las instrucciones en pantalla
+# 4. ¡La aplicación se abrirá automáticamente!
+```
+
+#### **Ejemplo 2: Desarrollador con Puerto Específico**
+```cmd
+# Instalar en puerto 3000
+git clone https://github.com/Cesde-Suroeste/chat-IA.git
+cd chat-IA
+quick_install.bat 3000
+```
+
+#### **Ejemplo 3: Servidor Web Público (Puerto 80)**
+```cmd
+# 1. Abrir CMD como Administrador
+# 2. Ejecutar:
+
+git clone https://github.com/Cesde-Suroeste/chat-IA.git
+cd chat-IA
+install_and_run.bat
+# Escribir "80" cuando pregunte por el puerto
+```
+
+#### **Ejemplo 4: Múltiples Instancias**
+```cmd
+# Terminal 1 - Puerto 8501
+git clone https://github.com/Cesde-Suroeste/chat-IA.git
+cd chat-IA
+install_and_run.bat
+
+# Terminal 2 - Puerto 8502
+cd chat-IA
+run.bat
+# Seleccionar puerto 8502
+```
+
+### **🔧 Solución de Problemas con Scripts**
+
+#### **Error: "git no se reconoce"**
+```cmd
+# Instalar Git desde: https://git-scm.com/download/win
+# Reiniciar CMD después de instalar
+```
+
+#### **Error: "python no se reconoce"**
+```cmd
+# Instalar Python desde: https://python.org/downloads/
+# IMPORTANTE: Marcar "Add Python to PATH"
+# Reiniciar CMD después de instalar
+```
+
+#### **Error: "Puerto en uso"**
+```cmd
+# El script detectará automáticamente y sugerirá alternativas
+# O usar puerto específico:
+install_and_run.bat
+# Escribir: 8502 (o cualquier puerto libre)
+```
+
+#### **Error: "Acceso denegado" (Puerto 80)**
+```cmd
+# Ejecutar CMD como Administrador:
+# 1. Buscar "cmd" en menú inicio
+# 2. Clic derecho → "Ejecutar como administrador"
+# 3. Ejecutar el script normalmente
+```
+
+#### **La aplicación no se abre automáticamente**
+```cmd
+# Abrir manualmente en el navegador:
+# http://localhost:8501 (o el puerto que hayas elegido)
+```
 
 ---
 
@@ -238,7 +394,25 @@ streamlit run app.py
 
 ## 📝 Comandos Útiles
 
-```bash
+### **Comandos de Scripts (Recomendado)**
+
+```cmd
+# Instalación completa automática
+install_and_run.bat
+
+# Instalación rápida con puerto específico
+quick_install.bat 8502
+
+# Solo ejecutar (después de instalar)
+run.bat
+
+# PowerShell con parámetros
+PowerShell -ExecutionPolicy Bypass -File install_and_run.ps1 -Port 3000
+```
+
+### **Comandos Manuales (Avanzado)**
+
+```cmd
 # Activar entorno virtual
 venv\Scripts\activate
 
@@ -251,8 +425,30 @@ streamlit run app.py
 # Ejecutar en puerto específico
 streamlit run app.py --server.port 8502
 
+# Ejecutar en puerto 80 (como administrador)
+streamlit run app.py --server.port 80
+
 # Desactivar entorno virtual
 deactivate
+```
+
+### **Comandos de Verificación**
+
+```cmd
+# Verificar Python
+python --version
+
+# Verificar Git
+git --version
+
+# Verificar Streamlit
+streamlit --version
+
+# Verificar puerto ocupado
+netstat -an | find ":8501"
+
+# Ver procesos en puerto específico
+netstat -ano | find ":8501"
 ```
 
 ## 🤝 Contribuciones
