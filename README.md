@@ -392,6 +392,27 @@ streamlit run app.py
 - ✅ **Fácil Despliegue**: Compatible con múltiples plataformas
 - ✅ **Sin JavaScript**: Todo en Python, más fácil de mantener
 
+## ☁️ Despliegue en la Nube
+
+### **🌐 Streamlit Cloud (Gratis)**
+
+Despliega la aplicación gratis en Streamlit Cloud:
+
+1. **Fork el repositorio** en tu cuenta de GitHub
+2. **Ve a** [share.streamlit.io](https://share.streamlit.io/)
+3. **Conecta tu repositorio**: `tu-usuario/chat-IA`
+4. **Configura secrets** con las API keys (formato TOML)
+5. **¡Deploy!** - Tu aplicación estará online en minutos
+
+📚 **Guía completa de despliegue:** [STREAMLIT_CLOUD_DEPLOY.md](STREAMLIT_CLOUD_DEPLOY.md)
+
+### **🔧 Otras Plataformas**
+
+- **Heroku**: Compatible con buildpack de Python
+- **Railway**: Despliegue automático desde GitHub
+- **Render**: Hosting gratuito con SSL
+- **DigitalOcean**: App Platform con escalabilidad
+
 ## 📝 Comandos Útiles
 
 ### **Comandos de Scripts (Recomendado)**
