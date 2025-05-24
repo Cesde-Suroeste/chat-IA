@@ -11,7 +11,7 @@ Una aplicación de chat moderna y segura que utiliza modelos LLM gratuitos de Op
 
 ### 🤖 **Modelos LLM Incluidos**
 - **Qwen 2.5 VL 72B** (131,072 tokens) - Modelo avanzado de visión-lenguaje
-- **Gemma 3 27B** (131,072 tokens) - Modelo de Google optimizado para instrucciones  
+- **Gemma 3 27B** (131,072 tokens) - Modelo de Google optimizado para instrucciones
 - **DeepSeek R1 Zero** (163,840 tokens) - Modelo de razonamiento matemático
 
 ### 🎨 **Interfaz Moderna con Streamlit**
@@ -105,14 +105,28 @@ venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-### **PASO 7: Ejecutar la Aplicación**
+### **PASO 7: Configurar Variables de Entorno (Opcional)**
+
+**Nota:** La aplicación viene con API keys preconfiguradas para uso inmediato. Si quieres usar tus propias API keys:
+
+```bash
+# Copiar archivo de ejemplo
+cp .env.example .env
+
+# Editar con tus API keys (opcional)
+code .env
+```
+
+📚 **Ver guía completa:** [CONFIGURACION_API.md](CONFIGURACION_API.md)
+
+### **PASO 8: Ejecutar la Aplicación**
 
 ```bash
 # 5. Ejecutar aplicación
 streamlit run app.py
 ```
 
-### **PASO 8: Abrir en el Navegador**
+### **PASO 9: Abrir en el Navegador**
 
 - La aplicación se abrirá automáticamente en `http://localhost:8501`
 - Si no se abre automáticamente, copia la URL desde la terminal
